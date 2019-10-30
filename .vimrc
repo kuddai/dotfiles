@@ -38,6 +38,8 @@ set wildignore+=.git
 call plug#begin('~/.vim/plugged')
 " My favorite Monokai theme.
 Plug 'flazz/vim-colorschemes'
+" Adds :Ack , enhance with The Silver Searcher "Ag" for faster search.
+Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
 " Syntax highlighting (probably can live without it).
 Plug 'scrooloose/syntastic'
@@ -119,6 +121,11 @@ colorscheme Monokai
 
 " chrome autocomplete setup
 let s:cwd = getcwd()
+
+" Update with "Ag" if available.
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 
 " HOTKEYS
