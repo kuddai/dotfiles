@@ -28,3 +28,24 @@ Using preexisting [snippet](https://gist.github.com/kuddai/d119010117035180b596e
 ```bash
 curl -Lks https://git.io/JeuMY | /bin/bash
 ```
+
+# VIM
+
+## Installation
+Choose VIM with at least those compile flags (type *:vim --version* to check):
+* +python
+* +ruby
+
+Then open *~/.vimrc* and type *:PlugInstall*
+
+## Keyboard
+Depending on the platform remap caps to escape.
+Temporary solution on Unix:
+```bash
+setxkbmap -option "caps:escape"
+```
+
+To preserve it on each login search for native keyboard behaviors (works Mac OS X, Gnome) or [use](https://askubuntu.com/questions/363346/how-to-permanently-switch-caps-lock-and-esc)
+```bash
+sudo apt-get install dconf-tools
+```
