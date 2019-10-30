@@ -1,0 +1,12 @@
+[user]
+	name = Ruslan Burakov
+	email = kuddai@webrtc.org
+[core]
+	autocrlf = input
+	filemode = false
+[color]
+	ui = true
+[http]
+	cookiefile = /usr/local/google/home/kuddai/.gitcookies
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cd %C(bold blue)%ae%Creset' --abbrev-commit --date=format:'%m-%d'
