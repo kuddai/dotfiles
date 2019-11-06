@@ -23,7 +23,7 @@ Also took some inspiration from this [repo](https://github.com/ibab/dotfiles).
 
 # Installation
 
-Using preexisting [snippet](https://gist.github.com/kuddai/d119010117035180b596e8faf2e8be25#file-dot-init-sh)
+Using preexisting [snippet](https://gist.githubusercontent.com/kuddai/d119010117035180b596e8faf2e8be25/raw/876e8ad3df15138c624e80726a3235d3758fd582/dot-init.sh)
 
 ```bash
 curl -Lks https://git.io/JeuMY | /bin/bash
