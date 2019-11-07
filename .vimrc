@@ -38,6 +38,9 @@ set wildignore+=.git
 call plug#begin('~/.vim/plugged')
 " My favorite Monokai theme.
 Plug 'flazz/vim-colorschemes'
+" Emmit style support.
+" Use "ctrl+y," to expand Emmet expressions.
+Plug 'mattn/emmet-vim'
 " Adds :Ack , enhance with The Silver Searcher "Ag" for faster search.
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
@@ -98,6 +101,13 @@ let g:CommandTMaxFiles=2700000
 
 " NERDTree
 let g:NERDTreeWinSize=35
+
+" Emmet
+let g:user_emmet_settings = {
+\  'javascript' : {
+\      'extends' : 'jsx',
+\  },
+\}
 
 " YouCompleteMe.
 " Remove help type annotation window.
