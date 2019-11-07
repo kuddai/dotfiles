@@ -1,8 +1,8 @@
 # Dotfiles
 Unix configuration files:
 * Use [git bare repository](https://www.atlassian.com/git/tutorials/dotfiles) with different work tree to track dotfiles in **$HOME**.
-* Store it in the **.cfg** folder instead of **.git** to avoid conflicts.
-* Make **config** alias for this repository instead of **git** for easier usage.
+* Store repository information in the **.cfg** folder instead of **.git** to avoid conflicts.
+* Make **config** alias for **git** command pointing to this repository for easier usage.
 
 Bash script:
 ```bash
