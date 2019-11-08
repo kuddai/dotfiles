@@ -137,6 +137,9 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
+" Override colorscheme with transparent background.
+hi Normal guibg=NONE ctermbg=NONE
+
 
 " HOTKEYS
 
