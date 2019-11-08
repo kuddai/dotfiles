@@ -28,7 +28,7 @@ set ignorecase
 " to case sensitive search mode (hence smart part).
 set smartcase
 " Exclude from file search.
-set wildignore+=.git
+set wildignore+=.git,node_modules,*.pyc,*.bak,*.class,*.jar,*jpg,*.png
 
 
 " PLUGINS
@@ -139,6 +139,10 @@ endif
 
 " Override colorscheme with transparent background.
 hi Normal guibg=NONE ctermbg=NONE
+
+" Check file for updates after cursors stops moving, by default triggered each
+" 4 seconds.
+au CursorHold,CursorHoldI * checktime
 
 
 " HOTKEYS
