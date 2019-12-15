@@ -1,6 +1,20 @@
 " Increase terminal keyboard speed on Mac OS X:
-" defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
-" defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
+" defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
+" defaults write -g KeyRepeat -int 2 # normal minimum is 2 (30 ms)
+" 
+" Swap capslock to escape on Linux:
+" "setxkbmap -option caps:escape"
+" Permamently, add it to
+" ~/.xinitrc or ~/.xsession
+" Or edit XkbOptions section here
+" /etc/X11/xorg.conf.d/00-keyboard.conf
+" Section "InputClass"
+"        Identifier      "system-keyboard"
+"        MatchIsKeyboard     "on"
+"        Option          "XkbLayout" "us"
+"        Option          "XkbModel"  "pc104"
+"        Option          "XkbOptions" "caps:swapescape"
+" EndSection
 
 " SETTINGS
 
@@ -32,7 +46,15 @@ set ignorecase
 " to case sensitive search mode (hence smart part).
 set smartcase
 " Exclude from file search.
-set wildignore+=.git,node_modules,*.pyc,*.bak,*.class,*.jar,*jpg,*.png
+set wildignore+=.git,**/node_modules/**,*.pyc,*.bak,*.class,*.jar,*jpg,*.png
+
+" From this talk:
+" https://www.youtube.com/watch?v=XA2WjJbmmoM
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+" Display all matching files when we tab complete
+set  wildmenu
 
 
 " PLUGINS
@@ -91,7 +113,7 @@ Plug 'vim-airline/vim-airline'
 " ruby support
 Plug 'wincent/command-t', { 'do': 'ruby ./ruby/command-t/ext/command-t/extconf.rb; make -C ./ruby/command-t/ext/command-t/' }
 " Kuddai code annotations plugin.
-Plug 'file://'.expand('~/.vim/plugged/vim-code-annotations')
+" Plug 'file://'.expand('~/.vim/plugged/vim-code-annotations')
 " Initialize plugin system
 call plug#end()
 
