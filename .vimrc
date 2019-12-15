@@ -149,6 +149,9 @@ let g:neocomplete#enable_auto_select = 1
 let g:ycm_clangd_uses_ycmd_caching = 0
 let g:ycm_clangd_binary_path = exepath("clangd")
 
+" Default ycm cpp preferences.
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+
 " vim-markdown, add code highlighting for those languages in markdown.
 let g:markdown_fenced_languages = ['html', 'javascript', 'c++=cpp', 'python', 'bash=sh']
 
