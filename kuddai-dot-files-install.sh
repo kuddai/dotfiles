@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/bash -x -v
+# -x -v print verbose lines for each command, makes debugging easier.
 
 function config {
    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
