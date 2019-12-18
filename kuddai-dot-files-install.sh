@@ -1,4 +1,4 @@
-#!/bin/bash -x -v
+#!/bin/bash -x
 # -x -v print verbose lines for each command, makes debugging easier.
 
 function config {
