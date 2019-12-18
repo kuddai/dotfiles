@@ -22,6 +22,8 @@ Inspired by [this](https://github.com/ibab/dotfiles).
 
 ```bash
 git clone --bare git@github.com:kuddai/dotfiles.git $HOME/.cfg
+# Get repo files.
+git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout
 ./kuddai-dot-files-install.sh
 ```
 
