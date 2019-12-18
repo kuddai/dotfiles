@@ -95,6 +95,7 @@ Plug 'tpope/vim-surround'
 " * If using GNU make, check out compiledb or Bear.
 "
 " For javascript related support (--ts-completer) needs jsconfig.json, for e.g.
+" npm and node are required.
 " {
 "     "compilerOptions": {
 "         "target": "ES6",
@@ -111,7 +112,7 @@ Plug 'valloric/youcompleteme', { 'do': './install.sh --clangd-completer --ts-com
 Plug 'vim-airline/vim-airline'
 " Control key + t -> index files and quick search. Vim must be compiled with
 " ruby support
-Plug 'wincent/command-t', { 'do': 'ruby ./ruby/command-t/ext/command-t/extconf.rb; make -C ./ruby/command-t/ext/command-t/' }
+Plug 'wincent/command-t', { 'do': 'make -C ./ruby/command-t/ext/command-t/ clean; ruby ./ruby/command-t/ext/command-t/extconf.rb; make -C ./ruby/command-t/ext/command-t/' }
 " Kuddai code annotations plugin.
 " Plug 'file://'.expand('~/.vim/plugged/vim-code-annotations')
 " Initialize plugin system

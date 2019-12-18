@@ -20,15 +20,18 @@ Inspired by [this](https://github.com/ibab/dotfiles).
 
 # Installation
 
-Use preexisting [snippet](https://gist.githubusercontent.com/kuddai/d119010117035180b596e8faf2e8be25/raw/876e8ad3df15138c624e80726a3235d3758fd582/dot-init.sh)
-
 ```bash
-curl -Lks https://git.io/JeuMY | /bin/bash
+git clone --bare git@github.com:kuddai/dotfiles.git $HOME/.cfg
+./kuddai-dot-files-install.sh
 ```
+
+# TODO
+Script to install all dependencies depending whether it is Mac OS X or Linux.
 
 # VIM
 
 ## Installation
+It requires ruby, python, cmake, make, g++, node and npm.
 Choose VIM with at least those compile flags (type **:vim --version** to check):
 * +python
 * +ruby
