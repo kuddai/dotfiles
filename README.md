@@ -26,7 +26,7 @@ git clone --bare git@github.com:kuddai/dotfiles.git $HOME/.cfg
 ```
 
 # TODO
-Script to install all dependencies depending whether it is Mac OS X or Linux.
+Script to install all dependencies depending on whether it is Mac OS X or Linux.
 
 # VIM
 
