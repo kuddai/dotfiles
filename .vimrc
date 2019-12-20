@@ -112,7 +112,7 @@ Plug 'valloric/youcompleteme', { 'do': './install.sh --clangd-completer --ts-com
 Plug 'vim-airline/vim-airline'
 " Control key + t -> index files and quick search. Vim must be compiled with
 " ruby support
-Plug 'wincent/command-t', { 'do': 'make -C ./ruby/command-t/ext/command-t/ clean; ruby ./ruby/command-t/ext/command-t/extconf.rb; make -C ./ruby/command-t/ext/command-t/' }
+Plug 'wincent/command-t', { 'do': 'cd ./ruby/command-t/ext/command-t/; make clean; ruby extconf.rb; make' }
 " Kuddai code annotations plugin.
 " Plug 'file://'.expand('~/.vim/plugged/vim-code-annotations')
 " Initialize plugin system
