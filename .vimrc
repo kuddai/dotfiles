@@ -125,6 +125,8 @@ let mapleader=','
 
 " Command-T max number of files indexed
 let g:CommandTMaxFiles=2700000
+" Command-T additional git ignore
+let g:CommandTWildIgnore=&wildignore . ",*/bazel-out,*/bazel-sdc,*/bazel-bin"
 
 " NERDTree
 let g:NERDTreeWinSize=35
@@ -194,6 +196,12 @@ nnoremap <leader>k :KuddaiFinish<CR>
 
 
 " SCRIPTS
+
+" Toggle between header and soure, more work is needed here.
+nnoremap t :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+
+" Highlight launch files as xml.
+autocmd BufEnter *.launch :setlocal filetype=xml
 
 " Allow to open command output into the scratch buffer which won't be saved
 " once closed.
