@@ -194,14 +194,23 @@ nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <leader>j :KuddaiAnnotate<CR>
 nnoremap <leader>k :KuddaiFinish<CR>
 
-
-" SCRIPTS
-
 " Toggle between header and soure, more work is needed here.
 nnoremap t :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
+" Open buffers and choose corret one.
+nnoremap <leader>bb :buffers<cr>:b<space>
+
+
+" SCRIPTS
+
+
 " Highlight launch files as xml.
 autocmd BufEnter *.launch :setlocal filetype=xml
+
+" Remember line in the previously opened file.
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
 " Allow to open command output into the scratch buffer which won't be saved
 " once closed.
