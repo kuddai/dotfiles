@@ -159,7 +159,7 @@ let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:markdown_fenced_languages = ['html', 'javascript', 'c++=cpp', 'python', 'bash=sh']
 
 " vim-colorschemes
-colorscheme Monokai
+colorscheme peachpuff
 
 " chrome autocomplete setup
 let s:cwd = getcwd()
