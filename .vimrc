@@ -107,7 +107,7 @@ Plug 'tpope/vim-surround'
 "         "node_modules"
 "     ]
 " }
-Plug 'valloric/youcompleteme', { 'do': './install.sh --clangd-completer --ts-completer' }
+Plug 'valloric/youcompleteme', { 'do': './install.py --clangd-completer --ts-completer' }
 " Bottom status line.
 Plug 'vim-airline/vim-airline'
 " Control key + t -> index files and quick search. Vim must be compiled with
