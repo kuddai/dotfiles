@@ -145,6 +145,7 @@ set completeopt-=preview
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_server_use_vim_stdout = 1
 let g:ycm_server_log_level = 'debug'
+let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
 " Automatically select first option.
 let g:neocomplete#enable_auto_select = 1
 

@@ -4,6 +4,7 @@
 [core]
 	autocrlf = input
 	filemode = false
+	editor = vim
 [color]
 	ui = true
 [http]
