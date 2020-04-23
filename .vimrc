@@ -116,6 +116,7 @@ Plug 'wincent/command-t', { 'do': 'cd ./ruby/command-t/ext/command-t/; make clea
 " Kuddai code annotations plugin.
 " Plug 'file://'.expand('~/.vim/plugged/vim-code-annotations')
 " Initialize plugin system
+Plug 'yasukotelin/shirotelin'
 call plug#end()
 
 
@@ -160,7 +161,9 @@ let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:markdown_fenced_languages = ['html', 'javascript', 'c++=cpp', 'python', 'bash=sh']
 
 " vim-colorschemes
-colorscheme peachpuff
+" colorscheme peachpuff
+colorscheme shirotelin
+
 
 " chrome autocomplete setup
 let s:cwd = getcwd()
