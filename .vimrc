@@ -69,9 +69,12 @@ Plug 'flazz/vim-colorschemes'
 Plug 'mattn/emmet-vim'
 " Adds :Ack , enhance with The Silver Searcher "Ag" for faster search.
 Plug 'mileszs/ack.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'scrooloose/nerdtree'
 " Syntax highlighting (probably can live without it).
 Plug 'scrooloose/syntastic'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " Intelectual replace regardless of camel case.
 " :%S/abba/moba -> Abba -> Moba
 " :%S/facilit{y,ies}/building{,s}/g
@@ -139,6 +142,9 @@ let g:user_emmet_settings = {
 \  },
 \}
 
+"Prettier
+let g:prettier#autoformat_config_present = 1
+
 " YouCompleteMe.
 " Remove help type annotation window.
 " https://github.com/Valloric/YouCompleteMe#i-get-a-weird-window-at-the-top-of-my-file-when-i-use-the-semantic-engine
@@ -155,7 +161,7 @@ let g:ycm_clangd_uses_ycmd_caching = 0
 let g:ycm_clangd_binary_path = exepath("clangd")
 
 " Default ycm cpp preferences.
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 " vim-markdown, add code highlighting for those languages in markdown.
 let g:markdown_fenced_languages = ['html', 'javascript', 'c++=cpp', 'python', 'bash=sh']
@@ -195,18 +201,29 @@ nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Kuddai annotation plugin -> starts/stops annotations.
-nnoremap <leader>j :KuddaiAnnotate<CR>
-nnoremap <leader>k :KuddaiFinish<CR>
+" nnoremap <leader>j :KuddaiAnnotate<CR>
+" nnoremap <leader>k :KuddaiFinish<CR>
+nnoremap <leader>j :call SwitchSourceHeader()<CR>
 
 " Toggle between header and soure, more work is needed here.
-nnoremap t :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+" old way nnoremap t :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+" new way
+" map t :call SwitchSourceHeader()<CR>
 
 " Open buffers and choose corret one.
 nnoremap <leader>bb :buffers<cr>:b<space>
 
 
 " SCRIPTS
-
+"Switch between C++ header/source
+function! SwitchSourceHeader()
+      "update!
+    if (expand ("%:e") == "cpp")
+        find %:t:r.h
+    else
+        find %:t:r.cpp
+    endif
+endfunction
 
 " Highlight launch files as xml.
 autocmd BufEnter *.launch :setlocal filetype=xml
