@@ -5,3 +5,4 @@ alias config='/usr/bin/git --git-dir=/home/kuddai/.cfg/ --work-tree=/home/kuddai
 if [ -f /etc/bash_completion ]; then
  . /etc/bash_completion
 fi
+export PATH=/home/kuddai/cs/depot_tools:$PATH

@@ -110,7 +110,13 @@ Plug 'tpope/vim-surround'
 "         "node_modules"
 "     ]
 " }
-Plug 'valloric/youcompleteme', { 'do': './install.py --clangd-completer --ts-completer' }
+"" Too many freezes
+" Plug 'valloric/youcompleteme', { 'do': './install.py --clangd-completer --ts-completer' }
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 " Bottom status line.
 Plug 'vim-airline/vim-airline'
 " Control key + t -> index files and quick search. Vim must be compiled with
@@ -195,10 +201,9 @@ nmap <silent> <C-N> :NERDTreeToggle<CR>
 " ,+f -> opens NERDTree on current file.
 nnoremap <leader>f :NERDTreeFind<CR>
 
-" YouCompleteMe.
-nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" LSP autocomplete.
+nnoremap <leader>gf :LspDeclaration<CR>
+nnoremap <leader>gg :LspDefinition<CR>
 
 " Kuddai annotation plugin -> starts/stops annotations.
 " nnoremap <leader>j :KuddaiAnnotate<CR>
