@@ -62,6 +62,8 @@ set  wildmenu
 " Using "plug" manager: https://github.com/junegunn/vim-plug
 " To install :PlugInstall
 call plug#begin('~/.vim/plugged')
+" Toggle between source and header file
+Plug 'vim-scripts/a.vim'
 " My favorite Monokai theme.
 Plug 'flazz/vim-colorschemes'
 " Emmit style support.
@@ -71,6 +73,8 @@ Plug 'mattn/emmet-vim'
 Plug 'mileszs/ack.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+" Vim autocomplte
+Plug 'davidhalter/jedi-vim'
 Plug 'scrooloose/nerdtree'
 " Syntax highlighting (probably can live without it).
 Plug 'scrooloose/syntastic'
@@ -117,6 +121,7 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'ryanolsonx/vim-lsp-typescript'
 " Bottom status line.
 Plug 'vim-airline/vim-airline'
 " Control key + t -> index files and quick search. Vim must be compiled with
@@ -192,6 +197,20 @@ hi Normal guibg=NONE ctermbg=NONE
 " 4 seconds.
 au CursorHold,CursorHoldI * checktime
 
+" davidhalter/jedi-vim
+" python settings
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+
+" ITS hotkeys
+" let g:jedi#goto_command = "<leader>d"
+" let g:jedi#goto_assignments_command = "<leader>g"
+" let g:jedi#goto_stubs_command = "<leader>s"
+" let g:jedi#goto_definitions_command = ""
+" let g:jedi#documentation_command = "K"
+" let g:jedi#usages_command = "<leader>n"
+" let g:jedi#completions_command = "<C-Space>"
+" let g:jedi#rename_command = "<leader>r"
 
 " HOTKEYS
 
@@ -205,10 +224,19 @@ nnoremap <leader>f :NERDTreeFind<CR>
 nnoremap <leader>gf :LspDeclaration<CR>
 nnoremap <leader>gg :LspDefinition<CR>
 
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+
+let g:lsp_settings = {
+\  'clangd': {'cmd': ['clangd-9']}
+\}
+let g:lsp_signature_help_enabled = 0
+
 " Kuddai annotation plugin -> starts/stops annotations.
 " nnoremap <leader>j :KuddaiAnnotate<CR>
 " nnoremap <leader>k :KuddaiFinish<CR>
-nnoremap <leader>j :call SwitchSourceHeader()<CR>
+nnoremap <leader>j :A<CR>
 
 " Toggle between header and soure, more work is needed here.
 " old way nnoremap t :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
@@ -237,6 +265,7 @@ autocmd BufEnter *.launch :setlocal filetype=xml
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
 
 " Allow to open command output into the scratch buffer which won't be saved
 " once closed.
