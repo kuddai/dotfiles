@@ -246,6 +246,9 @@ nnoremap <leader>j :A<CR>
 " Open buffers and choose corret one.
 nnoremap <leader>bb :buffers<cr>:b<space>
 
+" yank relative file path
+nnoremap <leader>cp :let @" = expand("%")<cr>
+
 
 " SCRIPTS
 "Switch between C++ header/source
