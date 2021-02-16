@@ -21,7 +21,14 @@
 " Enable modern vim (not vi).
 set nocompatible
 set encoding=utf-8
+
 filetype plugin indent on
+filetype plugin on
+" Css autocomplete on |Insert mode| ctrl + x, ctrl + o
+" https://www.simplified.guide/vim/auto-complete-css
+" https://medium.com/vim-drops/css-autocompletion-on-vim-no-plugins-needed-e8df9ce079c7
+autocmd FileType scss set omnifunc=csscomplete#CompleteCSS
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 " Enable syntax highlighting.
 syntax on
 " Left column with line numbers.
@@ -229,7 +236,8 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 
 let g:lsp_settings = {
-\  'clangd': {'cmd': ['clangd-9']}
+\  'clangd': {'cmd': ['clangd-9']},
+\  'typescript-language-server': {'cmd': ['typescript-language-server']}
 \}
 let g:lsp_signature_help_enabled = 0
 
